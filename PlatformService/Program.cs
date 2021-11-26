@@ -17,11 +17,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var configuration = builder.Configuration;
-var environment = builder.Environment;
+// var configuration = builder.Configuration;
+// var environment = builder.Environment;
 
-var url = configuration["CommandService"];
-Console.WriteLine($"--> CommandService Endpoint {url}");
+// var url = configuration["CommandService"];
+// Console.WriteLine($"--> CommandService Endpoint {url}");
 
 var app = builder.Build();
 

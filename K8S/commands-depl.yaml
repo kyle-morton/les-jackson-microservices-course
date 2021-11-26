@@ -16,7 +16,7 @@ spec:
         - name: commandservice
           image: kylemorton5770/commandservice
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: commands-clusterip-srv

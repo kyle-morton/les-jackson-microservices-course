@@ -17,14 +17,17 @@ namespace PlatformService.SyncDataServices.Http
 
         public async Task SendPlatformToCommand(PlatformReadDto plat)
         {
+            var json = JsonSerializer.Serialize(plat);
             var httpContent = new StringContent(
-                JsonSerializer.Serialize(plat),
+                json,
                 Encoding.UTF8,
                 "application/json"
             );
 
             var url = _config["CommandService"];
             var response = await _client.PostAsync($"{url}", httpContent);
+
+            Console.WriteLine($"Sending platform to {url}: {json}");
 
             if (response.IsSuccessStatusCode) 
             {
