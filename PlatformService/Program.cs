@@ -2,9 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Http;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
+if (builder.Environment.IsProduction()){
+    Console.WriteLine("--> Using SqlServer DB");
+    builder.Services.AddDbContext<AppDbContext>(opt =>
+        opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
+}
+else {
+    Console.WriteLine("--> Using in memory");
+    builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
+}
+
 builder.Services.AddControllers();
 
 builder.Services.AddHttpClient();
@@ -17,11 +28,6 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// var configuration = builder.Configuration;
-// var environment = builder.Environment;
-
-// var url = configuration["CommandService"];
-// Console.WriteLine($"--> CommandService Endpoint {url}");
 
 var app = builder.Build();
 
@@ -38,6 +44,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-DbInitializer.Populate(app);
+DbInitializer.Populate(app, app.Environment);
 
 app.Run();
