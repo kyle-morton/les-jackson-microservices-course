@@ -1,4 +1,8 @@
+using System.Text.Json;
 using AutoMapper;
+using CommandService.Data;
+using CommandService.Dtos;
+using CommandService.Models;
 
 namespace CommandService.EventProcessing
 {
@@ -15,9 +19,61 @@ namespace CommandService.EventProcessing
 
         public void ProcessEvent(string message)
         {
-            throw new NotImplementedException();
+            var eventType = DetermineEvent(message);
+            switch (eventType)
+            {
+                case EventType.PlatformPublished:
+
+                    break;
+                default:
+                    break;
+            }
         }
 
+        private void AddPlatform(string platformPublishedMessage)
+        {
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var repo = scope.ServiceProvider.GetRequiredService<ICommandRepo>();
+                var dto = JsonSerializer.Deserialize<PlatformPublishDto>(platformPublishedMessage);
+
+                try
+                {
+                    var plat = _mapper.Map<Platform>(dto);
+                    if (repo.ExternalPlatformExists(plat.Id))
+                    {
+                        Console.WriteLine("--> Platform already exists: " + plat.Id);
+                    }
+                    else
+                    {
+                        repo.CreatePlatform(plat);
+                        repo.SaveChanges();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("--> Could not add platform to DB");
+                }
+            }
+        }
+
+        private EventType DetermineEvent(string notificationMessage)
+        {
+            Console.WriteLine("--> Determining event type for : " + notificationMessage);
+
+            var message = JsonSerializer.Deserialize<GenericEventDto>(notificationMessage);
+
+            switch (message.Event)
+            {
+                case "Platform_Published":
+                    Console.WriteLine("--> Platform published event detected");
+                    return EventType.PlatformPublished;
+                default:
+                    Console.WriteLine("--> Undetermined event detected");
+                    return EventType.Undetermined;
+            }
+        }
     }
     enum EventType
     {
