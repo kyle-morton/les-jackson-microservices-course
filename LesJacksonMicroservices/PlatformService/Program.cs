@@ -48,14 +48,20 @@ app.UseAuthorization();
 
 app.UseRouting();
 
-app.UseEndpoints(ep => {
-    ep.MapControllers();
-    ep.MapGrpcService<GrpcPlatformService>();
-
-    ep.MapGet("Protos/platforms.proto", async context => {
+app.MapControllers();
+app.MapGrpcService<GrpcPlatformService>();
+app.MapGet("Protos/platforms.proto", async context => {
         await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
     });
-});
+
+// app.UseEndpoints(ep => {
+//     ep.MapControllers();
+//     ep.MapGrpcService<GrpcPlatformService>();
+
+//     ep.MapGet("Protos/platforms.proto", async context => {
+//         await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+//     });
+// });
 
 DbInitializer.Populate(app, app.Environment);
 
