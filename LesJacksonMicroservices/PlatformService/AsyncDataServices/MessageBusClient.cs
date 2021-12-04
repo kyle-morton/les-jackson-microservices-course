@@ -22,6 +22,8 @@ namespace PlatformService.AsyncDataServices
                 Port = int.Parse(_config["RabbitMQPort"])
             };
 
+            Console.WriteLine("MQ: " + _config["RabbitMQ"] + "/" + _config["RabbitMQPort"]);
+
             try
             {
                 _connection = factory.CreateConnection();
