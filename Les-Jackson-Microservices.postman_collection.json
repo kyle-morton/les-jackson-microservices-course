@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "95e2a63a-bad5-473d-a049-34417cf1bd96",
+		"name": "Les-Jackson-Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local Dev",
+			"item": [
+				{
+					"name": "Platform Service",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7242/api/platforms",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7242",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7242/api/platforms/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7242",
+									"path": [
+										"api",
+										"platforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SQL Server Developer\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7242/api/platforms",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7242",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Protobuf",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7276/api/c/platforms",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7276",
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Command Service",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7276/api/c/platforms",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7276",
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7276/api/c/platforms/5/commands",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7276",
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"5",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Command for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7276/api/c/platforms/1/commands/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7276",
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"1",
+										"commands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"HowTo\": \"Select All Columns\",\n    \"CommandLine\": \"SELECT *\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7276/api/c/platforms/5/commands",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7276",
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"5",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Docker",
+			"item": [
+				{
+					"name": "Platform Service",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/platforms/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"platforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SQL Server Developer\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Command Service",
+			"item": [
+				{
+					"name": "Test Inbound",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7276/api/c/platforms",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7276",
+							"path": [
+								"api",
+								"c",
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "K8S",
+			"item": [
+				{
+					"name": "Command Service (nginx)",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/c/platforms",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/c/platforms",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://lacme.com/api/c/platforms/1/commands",
+									"protocol": "https",
+									"host": [
+										"lacme",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"1",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Command for Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/c/platforms/1/commands/1",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"1",
+										"commands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Command",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"HowTo\": \"Build a .NET project\",\n    \"CommandLine\": \"dotnet build\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://acme.com/api/c/platforms/1/commands",
+									"protocol": "https",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"platforms",
+										"1",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (Node Port)",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30309/api/platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30309",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30309/api/platforms/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30309",
+									"path": [
+										"api",
+										"platforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SQL Server Developer\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30309/api/platforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30309",
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (nginx)",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/platforms",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/platforms/2",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SQL Server Developer\",\r\n    \"publisher\": \"Microsoft\",\r\n    \"cost\": \"Free\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://acme.com/api/platforms",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
